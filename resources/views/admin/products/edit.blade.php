@@ -34,38 +34,57 @@
                     {{ trans('global.product.fields.description_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('quantity') ? 'has-error' : '' }}">
-                <label for="quantity">{{ trans('global.product.fields.quantity') }}</label>
-                <input type="number" id="quantity" name="quantity" class="form-control "value="{{ old('quantity', isset($product) ? $product->quantity : '') }}">
-                @if($errors->has('quantity'))
+            <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                <label for="phone">{{ trans('global.product.fields.phone') }}</label>
+                <input type="number" id="phone" name="phone" class="form-control "value="{{ old('phone', isset($product) ? $product->quantity : '') }}">
+                @if($errors->has('phone'))
                     <p class="help-block">
-                        {{ $errors->first('quantity') }}
+                        {{ $errors->first('phone') }}
                     </p>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.quantity_helper') }}
+                    {{ trans('global.product.fields.phone_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('type') ? 'has-error' : '' }}">
-                <div class="form-group {{ ($errors->has('roll'))?'has-error':'' }}">
-                <label for="type">{{ trans('global.product.fields.type') }} <span class="required">*</span></label>
-                <select name="type" class="form-control" id="type">
-                    <option value="">-- Select Type --</option>
-                                            
-                        <option value="able">able</option>
-                        <option value="goat">goat</option>
-                </select>
-            </div>
-            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                <label for="price">{{ trans('global.product.fields.price') }}</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ old('price', isset($product) ? $product->price : '') }}" step="0.01">
-                @if($errors->has('price'))
+            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                <label for="email">{{ trans('global.product.fields.price') }}</label>
+                <input type="number" id="email" name="email" class="form-control" value="{{ old('price', isset($product) ? $product->email : '') }}">
+                @if($errors->has('email'))
                     <p class="help-block">
-                        {{ $errors->first('price') }}
+                        {{ $errors->first('email') }}
                     </p>
                 @endif
                 <p class="helper-block">
-                    {{ trans('global.product.fields.price_helper') }}
+                    {{ trans('global.product.fields.email_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
+                <div class="form-group {{ ($errors->has('roll'))?'has-error':'' }}">
+                <label for="categories">{{ trans('global.product.fields.categories') }} <span class="required">*</span></label>
+                <select name="type" class="form-control" id="type">
+                    <option value="">-- Select Categories --</option>
+                                            
+                        <option value="web">Web</option>
+                        <option value="mobile">Mobile</option>
+                </select>
+            </div>
+            <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
+                <label for="image">Image</label>
+                <div class="col-md-6">
+                    <input id="image" type="file" class="form-control" name="image" value="{{ old('image', isset($product) ? $product->image : '') }}">
+                    @if (auth()->user()->image)
+                        <code>{{ auth()->user()->image }}</code>
+                    @endif
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                    </div>
+                    <img src="/images/{{ Session::get('path') }}" width="300" />
+                    @endif
+                </div>
+                <p class="helper-block">
+                    {{ trans('global.product.fields.image_helper') }}
                 </p>
             </div>
             <div>

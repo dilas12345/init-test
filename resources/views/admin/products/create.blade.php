@@ -58,7 +58,7 @@
                 </p>
             </div>
             
-            <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
+            <!-- <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
                 <label for="categories">{{ trans('global.product.fields.categories') }}</label>
                 <input type="text" id="categories" name="categories" class="form-control" value="{{ old('categories', isset($product) ? $product->categories : '') }}" step="0.01">
                 @if($errors->has('categories'))
@@ -69,6 +69,16 @@
                 <p class="helper-block">
                     {{ trans('global.product.fields.categories_helper') }}
                 </p>
+            </div> -->
+            <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
+                <div class="form-group {{ ($errors->has('roll'))?'has-error':'' }}">
+                <label for="categories">{{ trans('global.product.fields.categories') }} <span class="required">*</span></label>
+                <select name="type" class="form-control" id="type">
+                    <option value="">-- Select Categories --</option>
+                                            
+                        <option value="web">Web</option>
+                        <option value="mobile">Mobile</option>
+                </select>
             </div>
             <!-- <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                 <label for="image">{{ trans('global.product.fields.image') }}</label>
@@ -85,7 +95,7 @@
             <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                 <label for="image">Image</label>
                 <div class="col-md-6">
-                    <input id="image" type="file" class="form-control" name="image" value="{{ old('image', isset($product) ? $product->image : '') }}" step="0.01">
+                    <input id="image" type="file" class="form-control" name="image" value="{{ old('image', isset($product) ? $product->image : '') }}">
                     @if (auth()->user()->image)
                         <code>{{ auth()->user()->image }}</code>
                     @endif
