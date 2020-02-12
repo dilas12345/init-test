@@ -73,7 +73,7 @@
             <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
                 <div class="form-group {{ ($errors->has('roll'))?'has-error':'' }}">
                 <label for="categories">{{ trans('global.product.fields.categories') }} <span class="required">*</span></label>
-                <select name="type" class="form-control" id="type">
+                <select name="categories" class="form-control" id="categories">
                     <option value="">-- Select Categories --</option>
                                             
                         <option value="web">Web</option>

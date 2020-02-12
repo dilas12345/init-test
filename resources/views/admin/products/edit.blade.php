@@ -47,8 +47,8 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">{{ trans('global.product.fields.price') }}</label>
-                <input type="number" id="email" name="email" class="form-control" value="{{ old('price', isset($product) ? $product->email : '') }}">
+                <label for="email">{{ trans('global.product.fields.email') }}</label>
+                <input type="text" id="email" name="email" class="form-control" value="{{ old('price', isset($product) ? $product->email : '') }}">
                 @if($errors->has('email'))
                     <p class="help-block">
                         {{ $errors->first('email') }}
@@ -61,7 +61,7 @@
             <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
                 <div class="form-group {{ ($errors->has('roll'))?'has-error':'' }}">
                 <label for="categories">{{ trans('global.product.fields.categories') }} <span class="required">*</span></label>
-                <select name="type" class="form-control" id="type">
+                <select name="categories" class="form-control" id="categories">
                     <option value="">-- Select Categories --</option>
                                             
                         <option value="web">Web</option>
